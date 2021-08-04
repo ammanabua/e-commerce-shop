@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography, List, ListItem, ListItemText } from '@material-ui/core';
 
 const Review = ({ checkoutToken }) => {
+    console.log(checkoutToken);
     return (
         <>
             <Typography variant='h6' gutterBottom>Order Summary</Typography>
@@ -14,7 +15,7 @@ const Review = ({ checkoutToken }) => {
                 ))}
                 <ListItem style={{padding: '10px 0'}}>
                     <ListItemText primary='Total' />
-                    <Typography variant='subtitle1' style={{ fontWeight: 700}}>
+                    <Typography variant='subtitle1' style={{ fontWeight: 700 }}>
                         {checkoutToken.live.subtotal.formatted_with_symbol}
                     </Typography>
                 </ListItem>
