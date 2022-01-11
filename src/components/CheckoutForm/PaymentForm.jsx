@@ -1,47 +1,50 @@
 import React from 'react';
 import { Typography, Button, Divider } from '@material-ui/core';
-import { usePaystackPayment } from 'react-paystack';
+import { PaystackConsumer, usePaystackConsumer } from 'react-paystack';
 
 
 import Review from './Review';
 
-const config = {
-    reference: (new Date()).getTime().toString(),
-    email: "ammanxabua@gmail.com",
-    amount: 2000000,
-    publicKey: 'pk_test_687a8ebd710403b4c2f5383c6c027d896bd074dc',
-  };
 
-  const onSuccess = (reference) => {
-      console.log(reference)
-  };
-
-  const onClose = () => {
-      console.log('closed')
-  }
 
   
-  const PayStackHook = () => {
-      const initializePayment = usePaystackPayment(config);
-      return (
-          <div onClick={() => {
-              initializePayment(onSuccess, onClose);
-          }}>
-              <button>HOoks Implementation</button>
-          </div>
-      )
-  };
+ 
 
 
 const PaymentForm = ({ checkoutToken }) => {
 
+
+    const config = {
+        reference: (new Date()).getTime().toString(),
+        name: "Amman Jordan",
+        email: "ammanxabua@gmail.com",
+        amount: 1000000,
+        publicKey: process.env.REACT_APP_PAYSTACK_PUBLIC_KEY
+      };
+    
+      const handleSuccess = (reference) => {
+          console.log(reference)
+      };
+    
+      const handleClose = () => {
+          console.log('closed')
+      }
+      
+    const componentProps = {
+        ...config,
+        text: 'Paystack Button Implementation',
+        onSuccess: (reference) => handleSuccess(reference),
+        onClose: handleClose
+    };
     
     return (
         <>
             <Review checkoutToken={checkoutToken} />
             <Divider />
             <Typography variant='h6' gutterBottom style={{ margin: '20px 0' }}>Payment Method</Typography>
-            <PayStackHook />
+            <PaystackConsumer {...componentProps} >
+                {({ initializePayment }) => <Button variant="contained" onClick={() => initializePayment(handleSuccess, handleClose)}>Pay {checkoutToken.live.subtotal.formatted_with_symbol}</Button>}
+            </PaystackConsumer>
         </>
     )
 }

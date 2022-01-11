@@ -4,6 +4,7 @@ import { commerce } from '../../../lib/commerce';
 import useStyles from './styles';
 import AddressForm from '../AddressForm';
 import PaymentForm from '../PaymentForm';
+import { Link } from 'react-router-dom';
 
 const steps = ['Shipping address', 'Payment details'];
 
@@ -37,10 +38,8 @@ const Checkout = ({ cart }) => {
         nextStep();
     }
 
-    const Confirmation = () => (
-        <div>
-            Confirmation
-        </div>
+    let Confirmation = () => (
+      <div>Confirmation</div>
     );
 
     const Form = () => activeStep === 0 
