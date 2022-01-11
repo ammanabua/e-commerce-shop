@@ -22,7 +22,7 @@ const Checkout = ({ cart }) => {
                 
                 setCheckoutToken(token);
             } catch (error) {
-
+                console.log(error);
             }
         };
 

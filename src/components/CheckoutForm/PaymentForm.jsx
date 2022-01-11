@@ -13,12 +13,12 @@ import Review from './Review';
 
 const PaymentForm = ({ checkoutToken }) => {
 
-
+    console.log(checkoutToken)
     const config = {
         reference: (new Date()).getTime().toString(),
         name: "Amman Jordan",
         email: "ammanxabua@gmail.com",
-        amount: 1000000,
+        amount: checkoutToken.live.total.raw,
         publicKey: process.env.REACT_APP_PAYSTACK_PUBLIC_KEY
       };
     

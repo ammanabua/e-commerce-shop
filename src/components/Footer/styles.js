@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 export default makeStyles(() => ({
     footer: {
-        width: 'auto',
+        width: '100%',
         padding: '5px',
         height: '60px',
         display: 'flex',
@@ -12,5 +12,6 @@ export default makeStyles(() => ({
         backgroundImage: 'linear-gradient(to bottom right, #121212, #3d4a5d)',
         overflow: 'hidden',
         color: 'white',
+        boxSizing: 'border-box'
     }
 }))
