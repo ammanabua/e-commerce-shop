@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-
+import Loader from '../Loader/Loader';
 import Product from './Product/Product';
 import useStyles from './styles';
 import Banner from '../Banner/Banner';
@@ -11,6 +11,7 @@ import Banner from '../Banner/Banner';
 const Products = ({ products, onAddToCart }) => {
     const classes = useStyles();
 
+    if (!products.length) return <Loader />;
 
     return(
         <div>

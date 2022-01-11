@@ -12,6 +12,7 @@ export default makeStyles(() => ({
         backgroundImage: 'linear-gradient(to bottom right, #121212, #3d4a5d)',
         overflow: 'hidden',
         color: 'white',
-        boxSizing: 'border-box'
+        boxSizing: 'border-box',
+        bottom: '0',
     }
 }))

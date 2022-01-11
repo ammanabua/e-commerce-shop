@@ -4,6 +4,7 @@ import { ShoppingCart } from '@material-ui/icons';
 import { classExpression } from '@babel/types';
 import useStyles from './styles';
 import { Link, useLocation } from 'react-router-dom';
+import logo from './manny.png'
 
 const Navbar = ({ totalItems }) => {
     const classes = useStyles();
@@ -14,8 +15,7 @@ const Navbar = ({ totalItems }) => {
             <AppBar position="fixed" className={classExpression.appBar} color="inherit">
                 <Toolbar>
                     <Typography component={Link} to="/">
-                        <img src='' alt="Amman's Store" height="25px" className={classes.image} />
-                        Amman's E-Commerce Store
+                        <img src={logo} alt="Manny's Store" height="80px" className={classes.image} />
                     </Typography>
                     <div className={classes.grow} />
                     {location.pathname === '/' && (
