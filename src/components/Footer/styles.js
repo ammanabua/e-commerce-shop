@@ -1,8 +1,9 @@
 import { makeStyles } from "@material-ui/core";
 
-export default makeStyles(() => ({
+const drawerWidth = 0;
+
+export default makeStyles((theme) => ({
     footer: {
-        width: '100%',
         padding: '5px',
         height: '60px',
         display: 'flex',
@@ -14,5 +15,9 @@ export default makeStyles(() => ({
         color: 'white',
         boxSizing: 'border-box',
         bottom: '0',
+        [theme.breakpoints.up('sm')]: {
+            width: `calc(100% - ${drawerWidth}px)`,
+            marginLeft: drawerWidth,
+          }
     }
 }))
