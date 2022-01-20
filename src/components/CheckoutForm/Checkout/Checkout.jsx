@@ -38,6 +38,7 @@ const Checkout = ({ cart }) => {
         nextStep();
     }
 
+
     let Confirmation = () => (
       <div>Confirmation</div>
     );

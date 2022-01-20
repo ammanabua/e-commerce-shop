@@ -11,24 +11,26 @@ import Review from './Review';
  
 
 
-const PaymentForm = ({ checkoutToken }) => {
+const PaymentForm = ({ shippingData, checkoutToken }) => {
 
     console.log(checkoutToken)
+    console.log(shippingData)
+
     const config = {
         reference: (new Date()).getTime().toString(),
-        name: "Amman Jordan",
-        email: "ammanxabua@gmail.com",
-        amount: checkoutToken.live.total.raw,
+        name: shippingData.firstName + " " + shippingData.lastName,
+        email: shippingData.email,
+        amount: checkoutToken.live.total.raw * 100,
         publicKey: process.env.REACT_APP_PAYSTACK_PUBLIC_KEY
-      };
+    };
     
-      const handleSuccess = (reference) => {
-          console.log(reference)
-      };
+    const handleSuccess = (reference) => {
+        console.log(reference);
+    };
     
-      const handleClose = () => {
-          console.log('closed')
-      }
+    const handleClose = () => {
+        console.log('closed')
+    }
       
     const componentProps = {
         ...config,
