@@ -21,10 +21,13 @@ connection.once('open', () => {
 
 const usersRouter = require('./routes/users');
 const ordersRouter = require('./routes/orders');
+const productsRouter = require('./routes/products')
 
 
 app.use('/orders', ordersRouter);
 app.use('/users', usersRouter);
+app.use('/products', productsRouter);
+
 
 
 app.listen(port, () => {

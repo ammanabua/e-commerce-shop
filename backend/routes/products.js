@@ -33,7 +33,23 @@ router.route('/add').post((req, res) => {
     newProduct.save()
     .then(() => res.json('Product Added!'))
     .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('update/:id').post((req, res) => {
+    Product.findById(req.params.id)
+    .then(product => {
+        product.name = req.body.name;
+        product.image = req.body.image;
+        product.description = req.body.description;
+        product.price = Number(req.body.price);
+        product.countInStock = Number(req.body.countInStock);
+    })
+
+    prodcut.save()
+    .then(() => res.json('Product updated'))
+    .catch(err => res.status(400).json('Error: ' + err));
 })
+
 
 router.route('/:id').delete((req, res) => {
     Product.findByIdAndDelete(req.params.id)
@@ -41,3 +57,5 @@ router.route('/:id').delete((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 })
 
+
+module.exports = router;
