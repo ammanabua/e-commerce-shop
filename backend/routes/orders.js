@@ -49,11 +49,11 @@ router.route('/update/:id').post((req, res) => {
         order.itemsPrice = req.body.itemsPrice;
         order.shippingPrice = req.body.shippingPrice;
         order.totalPrice = req.body.totalPrice;
-    })
 
-    order.save()
-    .then(() => res.json('Order updated'))
-    .catch(err => res.status(400).json('Error: ' + err));
+        order.save()
+        .then(() => res.json('Order updated'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
 });
 
 module.exports = router;

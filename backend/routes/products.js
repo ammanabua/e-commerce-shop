@@ -43,11 +43,13 @@ router.route('update/:id').post((req, res) => {
         product.description = req.body.description;
         product.price = Number(req.body.price);
         product.countInStock = Number(req.body.countInStock);
-    })
 
-    prodcut.save()
-    .then(() => res.json('Product updated'))
-    .catch(err => res.status(400).json('Error: ' + err));
+        product.save()
+        .then(() => res.json('Product updated'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    
+    
 })
 
 
