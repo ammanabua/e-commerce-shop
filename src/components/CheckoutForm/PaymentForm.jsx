@@ -11,21 +11,49 @@ import Review from './Review';
  
 
 
-const PaymentForm = ({ shippingData, checkoutToken }) => {
+const PaymentForm = ({ shippingData, checkoutToken, nextStep, backstep, onCaptureCheckout }) => {
 
     console.log(checkoutToken)
     console.log(shippingData)
 
+
+    const orderData = {
+        line_items: checkoutToken.live.line_items,
+        customer: {
+            firstname: shippingData.firstName,
+            lastname: shippingData.lastname,
+            email: shippingData.email
+        },
+        shipping: { 
+            name: 'Primary', 
+            street: shippingData.address1, 
+            town_city: shippingData.city,
+            state: shippingData.shippingSubdivision,
+            postal_zip_code: shippingData.zip,
+            country: shippingData.shippingCountry
+        },
+
+        fulfillment: { shipping_method: shippingData.shippingOption },
+        payment: {
+            gateway: 'paystack',
+        }
+    
+    }
+    
+    
+
     const config = {
         reference: (new Date()).getTime().toString(),
-        name: shippingData.firstName + " " + shippingData.lastName,
-        email: shippingData.email,
+        name: orderData.customer.firstName + " " + orderData.customer.lastName,
+        email: orderData.customer.email,
         amount: checkoutToken.live.total.raw * 100,
         publicKey: process.env.REACT_APP_PAYSTACK_PUBLIC_KEY
     };
     
     const handleSuccess = (reference) => {
         console.log(reference);
+        onCaptureCheckout(checkoutToken.id, orderData);
+        nextStep()
     };
     
     const handleClose = () => {

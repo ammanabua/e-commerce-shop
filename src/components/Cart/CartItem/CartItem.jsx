@@ -1,10 +1,13 @@
 import React from 'react';
-import { Typography, Button, Card, CardActions, CardContent, CardMedia, IconButton } from '@material-ui/core';
+import { Typography, Button, Card, CardActions, CardContent, CardMedia, IconButton, Grid } from '@material-ui/core';
 import { DeleteOutlineOutlined } from '@material-ui/icons';
 import useStyles from './styles';
 
+
+
 const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
     const classes = useStyles();
+
 
     return (
         <Card>
@@ -24,7 +27,7 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
                 </IconButton>
             </CardActions>
         </Card>
-    )
+  )
 }
 
 export default CartItem

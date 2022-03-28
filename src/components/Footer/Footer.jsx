@@ -1,5 +1,6 @@
 import React from 'react';
 import useStyles from './styles';
+import { Container, Grid, Box, Typography } from '@material-ui/core';
 
 const Footer = () => {
 
@@ -10,9 +11,17 @@ const Footer = () => {
 
     return (
         <footer className={classes.footer}>
-            <p>
+            {/* <p>
                 Copyright &copy; {fullYear} Amman Abua &trade;
-            </p>
+            </p> */}
+
+            <Box>
+                <Container maxWidth="lg">
+                    <Grid xs={12}>
+                        <Typography>Copyright &copy; {fullYear} Amman Abua &trade;</Typography>
+                    </Grid>
+                </Container>
+            </Box>
         </footer>
     )
 };

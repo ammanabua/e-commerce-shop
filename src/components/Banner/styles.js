@@ -21,7 +21,7 @@ export default makeStyles(() => ({
         width: '100%'
     },
     title: {
-        fontSize: '45px',
+        fontSize: '60px',
         marginBottom: '20px',
         fontFamily: 'Roboto, sans-serif',
         textAlign: 'center',
