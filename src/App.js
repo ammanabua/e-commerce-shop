@@ -93,7 +93,11 @@ const App = () => {
                             onCaptureCheckout={handleCaptureCheckout}
                             error={errorMessage} />
                     </Route>
+                    <Route exact path="/profile">
+                        
+                    </Route>
                 </Switch>
+                {/* <Footer /> */}
             </div>
         </Router>
     )

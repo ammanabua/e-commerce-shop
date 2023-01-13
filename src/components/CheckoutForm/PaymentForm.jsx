@@ -45,7 +45,7 @@ const PaymentForm = ({ shippingData, checkoutToken, nextStep, backstep, onCaptur
     const config = {
         reference: (new Date()).getTime().toString(),
         name: orderData.customer.firstName + " " + orderData.customer.lastName,
-        email: orderData.customer.email,
+        email: "ammanabua@gmail.com",
         amount: checkoutToken.live.total.raw * 100,
         publicKey: process.env.REACT_APP_PAYSTACK_PUBLIC_KEY
     };

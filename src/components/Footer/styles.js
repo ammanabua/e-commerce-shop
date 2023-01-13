@@ -17,7 +17,7 @@ export default makeStyles(() => ({
         bottom: '0',
         left: '0',
         right: '0',
-        position: 'absolute',
+        position: 'relative',
         zIndex: '3'
         }
 }))
